@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout | Aetheris Luxury Travel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-background": "#191c1e",
+                "error-container": "#ffdad6",
+                "on-tertiary-container": "#d16921",
+                "outline": "#74777f",
+                "surface-dim": "#d8dadc",
+                "on-secondary-fixed-variant": "#004f4f",
+                "error": "#ba1a1a",
+                "surface": "#f7f9fb",
+                "on-secondary-container": "#006e6e",
+                "surface-container-lowest": "#ffffff",
+                "primary-container": "#001f3f",
+                "tertiary-fixed-dim": "#ffb68d",
+                "on-error": "#ffffff",
+                "tertiary": "#0e0300",
+                "secondary-container": "#90efef",
+                "inverse-surface": "#2d3133",
+                "on-surface-variant": "#43474e",
+                "on-tertiary-fixed-variant": "#763300",
+                "on-error-container": "#93000a",
+                "on-primary-fixed-variant": "#2f486a",
+                "on-primary-fixed": "#001c3a",
+                "surface-variant": "#e0e3e5",
+                "on-tertiary": "#ffffff",
+                "tertiary-container": "#371400",
+                "surface-container-low": "#f2f4f6",
+                "inverse-primary": "#afc8f0",
+                "surface-container": "#eceef0",
+                "on-primary": "#ffffff",
+                "primary-fixed": "#d4e3ff",
+                "tertiary-fixed": "#ffdbc9",
+                "surface-tint": "#476083",
+                "on-primary-container": "#6f88ad",
+                "surface-bright": "#f7f9fb",
+                "on-tertiary-fixed": "#331200",
+                "secondary": "#006a6a",
+                "on-secondary": "#ffffff",
+                "surface-container-high": "#e6e8ea",
+                "primary-fixed-dim": "#afc8f0",
+                "secondary-fixed-dim": "#76d6d5",
+                "outline-variant": "#c4c6cf",
+                "inverse-on-surface": "#eff1f3",
+                "on-secondary-fixed": "#002020",
+                "surface-container-highest": "#e0e3e5",
+                "primary": "#000613",
+                "on-surface": "#191c1e",
+                "secondary-fixed": "#93f2f2",
+                "background": "#f7f9fb"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "stack-sm": "12px",
+                "margin-desktop": "64px",
+                "stack-xl": "80px",
+                "gutter": "24px",
+                "stack-md": "24px",
+                "base": "8px",
+                "margin-mobile": "20px",
+                "container-max": "1280px",
+                "stack-lg": "48px"
+            },
+            "fontFamily": {
+                "label-sm": ["Plus Jakarta Sans"],
+                "body-md": ["Plus Jakarta Sans"],
+                "display-lg-mobile": ["Manrope"],
+                "display-lg": ["Manrope"],
+                "headline-md": ["Manrope"],
+                "body-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                "label-sm": ["13px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .luxury-shadow {
+            box-shadow: 0 20px 40px -10px rgba(0, 31, 63, 0.08);
+        }
+        input:focus {
+            outline: none;
+            border-color: #006a6a;
+            box-shadow: 0 0 0 2px rgba(0, 106, 106, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen">
+<!-- Top Navigation (Reduced for Checkout focus) -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm">
+<nav class="max-w-container-max mx-auto px-margin-desktop py-4 flex justify-between items-center">
+<a class="font-display-lg text-display-lg text-primary font-bold tracking-tighter" href="#">Aetheris</a>
+<div class="flex items-center gap-base text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">
+<span class="material-symbols-outlined text-secondary">lock</span>
+                Secure Checkout
+            </div>
+</nav>
+</header>
+<main class="pt-32 pb-stack-xl max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Forms -->
+<div class="lg:col-span-7 space-y-stack-md">
+<!-- Contact Information -->
+<section class="bg-surface-container-lowest p-stack-md rounded-xl luxury-shadow border border-outline-variant/30">
+<div class="flex items-center gap-stack-sm mb-stack-md">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined">person</span>
+</div>
+<h2 class="font-headline-md text-headline-md">Contact Information</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-sm">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">First Name</label>
+<input class="w-full bg-surface-container-low border-transparent rounded-lg py-3 px-4 transition-all" placeholder="Julian" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">Last Name</label>
+<input class="w-full bg-surface-container-low border-transparent rounded-lg py-3 px-4 transition-all" placeholder="Evergreen" type="text"/>
+</div>
+<div class="md:col-span-2 space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">Email Address</label>
+<input class="w-full bg-surface-container-low border-transparent rounded-lg py-3 px-4 transition-all" placeholder="julian.evergreen@concierge.com" type="email"/>
+</div>
+</div>
+</section>
+<!-- Traveler Details -->
+<section class="bg-surface-container-lowest p-stack-md rounded-xl luxury-shadow border border-outline-variant/30">
+<div class="flex items-center gap-stack-sm mb-stack-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">group</span>
+</div>
+<h2 class="font-headline-md text-headline-md">Traveler Details</h2>
+</div>
+<div class="space-y-stack-sm">
+<div class="p-4 rounded-lg bg-surface-container border border-outline-variant/20 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-body-md font-semibold">Primary Traveler (You)</span>
+</div>
+<button class="text-secondary font-label-sm text-label-sm uppercase hover:underline">Edit</button>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">Special Requirements (Optional)</label>
+<textarea class="w-full bg-surface-container-low border-transparent rounded-lg py-3 px-4 transition-all resize-none" placeholder="Dietary restrictions, preferred floor, airport assistance..." rows="3"></textarea>
+</div>
+</div>
+</section>
+<!-- Payment Details -->
+<section class="bg-surface-container-lowest p-stack-md rounded-xl luxury-shadow border border-outline-variant/30">
+<div class="flex items-center justify-between mb-stack-md">
+<div class="flex items-center gap-stack-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<h2 class="font-headline-md text-headline-md">Payment Details</h2>
+</div>
+<div class="flex gap-2">
+<img alt="Visa" class="h-4 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZiuyOG7gNDSMIlp79NZPSDElEif5hSjowpyJRHHOyDeq186EBt50JUUvAFpzd9zF9cWFAWSArh1HkseYtzNx8nS3mtp4m6LBJR-Pf3iaEeisJiEXXTH7H4i-DTXl8SeJ2cm2rzph7G3uOZt1bylwPhRgJ9sieQ8ess40MiPA4QRgyE4SvvjVdu1ospY9vEVs0feeyK4ppLn_iW2oxg1pPVTD91xz3b-WNeOh8UAO5ECJ9ntV-6XtLaCB6zK3h-Mt5BkcGlUtPzchU"/>
+<img alt="Mastercard" class="h-4 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApIVUwjN3zdND4coPNeWugzqcW2Bv2JlmfMWFa6JfRueMWqS4ThGhDNu12aqnS5NfgBWR9bw369lbyH3KzFUw2BCveNA31xDuq41uS0PdtChKfAx8Rek0wvqrIfJ5STwIR1BhgMqxaIqU5IKvLzNtr-XNl86bUy2gZkdcNCTpHLFpUjM53Tr_P3W9HFidpczphXNf2zKFb4zFmddwhkUzClYRlD6pCKxRd64AKqUdNU0qTW6kKG0xMnNs3_ibY71Flg44eHe6FDC3M"/>
+</div>
+</div>
+<div class="space-y-stack-sm">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">Cardholder Name</label>
+<input class="w-full bg-surface-container-low border-transparent rounded-lg py-3 px-4 transition-all uppercase" placeholder="JULIAN EVERGREEN" type="text"/>
+</div>
+<div class="space-y-1 relative">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">Card Number</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-transparent rounded-lg py-3 px-4 transition-all" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline">credit_card</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-stack-sm">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">Expiry Date</label>
+<input class="w-full bg-surface-container-low border-transparent rounded-lg py-3 px-4 transition-all" placeholder="MM / YY" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-1">CVV</label>
+<input class="w-full bg-surface-container-low border-transparent rounded-lg py-3 px-4 transition-all" placeholder="•••" type="password"/>
+</div>
+</div>
+</div>
+<div class="mt-stack-md pt-stack-md border-t border-outline-variant/30">
+<div class="flex items-start gap-3 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-secondary text-lg">verified_user</span>
+<p>Your payment information is encrypted and stored securely. We do not share your private data with third parties.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary (Sticky) -->
+<aside class="lg:col-span-5 lg:sticky lg:top-32">
+<div class="bg-on-background text-surface p-stack-md rounded-2xl luxury-shadow relative overflow-hidden">
+<!-- Subtle background decoration -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-secondary opacity-10 rounded-full blur-3xl"></div>
+<h3 class="font-headline-md text-headline-md mb-stack-md relative z-10">Order Summary</h3>
+<!-- Trip Preview -->
+<div class="flex gap-4 mb-stack-md relative z-10">
+<div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-end photography of a luxury overwater villa in the Maldives during a vibrant sunset. The sky is painted in hues of deep purple and sunset orange, reflecting off the crystal clear turquoise water. The architecture is modern and elegant, featuring natural wood textures and floor-to-ceiling glass walls. The atmosphere is serene, exclusive, and breathtakingly beautiful, capturing the essence of a premium travel experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZeGnev2Abb0w7TVwrKrc5XKe2np3hdgHfdp6SjlPofjuTCYJU2bW1RBqCuZRDBy3hr5zSafZ0AowctAUghvVmtRRAV5i-D3xEmmvdMeBUHpvG_mA1hIfkZ7C7qONf94Eep8laYnOLsyrFAXJ8-rCSeSW7Uu1nueL_Wm3PVwiLQqy2zJJ9UV8Fqh9C6Nq_iK0NuMW_jjzdCopxfrhnijfYDXQ1N51JslG5L2Vail8Aur8hx6T6bLZh2vZ-pNbM1e4MFGjCcWMKBk7i"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest">7 Days · Maldives</p>
+<h4 class="font-body-lg text-body-lg font-bold">Azure Sanctuary Retreat</h4>
+<p class="text-surface-variant text-sm mt-1">Oct 24 - Oct 31, 2024</p>
+</div>
+</div>
+<div class="space-y-4 pt-stack-md border-t border-surface-variant/20 relative z-10">
+<div class="flex justify-between items-center text-surface-variant">
+<span>Base Experience (1x)</span>
+<span>$8,450.00</span>
+</div>
+<div class="flex justify-between items-center text-surface-variant">
+<span>Private Concierge Fee</span>
+<span>$450.00</span>
+</div>
+<div class="flex justify-between items-center text-surface-variant">
+<span>Luxury Taxes &amp; Fees</span>
+<span>$1,120.40</span>
+</div>
+<div class="flex justify-between items-center pt-4 mt-2 border-t border-surface-variant/40">
+<span class="font-body-lg text-body-lg font-bold">Total Amount</span>
+<span class="font-display-lg text-headline-md font-bold text-secondary-fixed">$10,020.40</span>
+</div>
+</div>
+<div class="mt-stack-md relative z-10">
+<button class="w-full bg-secondary text-on-secondary font-headline-md py-4 rounded-xl hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group" onclick="handleBooking()">
+                            Confirm Booking
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<p class="text-center text-xs text-surface-variant/60 mt-4">By clicking "Confirm Booking", you agree to Aetheris' <a class="underline" href="#">Terms of Service</a> and <a class="underline" href="#">Refund Policy</a>.</p>
+</div>
+</div>
+<!-- Trust Badges -->
+<div class="mt-stack-md grid grid-cols-2 gap-4">
+<div class="bg-surface-container-high/50 p-4 rounded-xl flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">256-bit SSL</span>
+</div>
+<div class="bg-surface-container-high/50 p-4 rounded-xl flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">IATA Protected</span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Success Modal (Hidden by default) -->
+<div class="fixed inset-0 z-[100] hidden items-center justify-center p-4" id="successModal">
+<div class="absolute inset-0 bg-on-background/80 backdrop-blur-sm"></div>
+<div class="bg-white rounded-3xl p-stack-xl max-w-md w-full relative z-10 text-center scale-95 opacity-0 transition-all duration-500" id="modalContent">
+<div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-stack-md">
+<span class="material-symbols-outlined text-white text-5xl">check</span>
+</div>
+<h2 class="font-display-lg text-headline-md text-primary mb-4">Journey Confirmed</h2>
+<p class="text-on-surface-variant mb-stack-lg">Your reservation for the Azure Sanctuary Retreat has been successfully processed. An itinerary has been sent to your email.</p>
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-bold hover:bg-secondary transition-colors" onclick="location.reload()">Go to My Bookings</button>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-on-background text-surface py-stack-lg border-t border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="font-display-lg text-display-lg text-surface">Aetheris</div>
+<div class="flex gap-stack-md">
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors font-body-md" href="#">Privacy Policy</a>
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors font-body-md" href="#">Terms of Service</a>
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors font-body-md" href="#">Sustainability</a>
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors font-body-md" href="#">Press</a>
+</div>
+<p class="text-surface-variant opacity-60 font-body-md">© 2024 Aetheris Luxury Travel. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        function handleBooking() {
+            const btn = document.querySelector('button[onclick="handleBooking()"]');
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Processing...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                const modal = document.getElementById('successModal');
+                const content = document.getElementById('modalContent');
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                
+                setTimeout(() => {
+                    content.classList.remove('scale-95', 'opacity-0');
+                    content.classList.add('scale-100', 'opacity-100');
+                }, 50);
+            }, 1800);
+        }
+
+        // Add float animation to background decoration
+        const decor = document.querySelector('.absolute.-top-24.-right-24');
+        let floatY = 0;
+        let direction = 1;
+        function animate() {
+            floatY += 0.05 * direction;
+            if(Math.abs(floatY) > 5) direction *= -1;
+            decor.style.transform = `translateY(${floatY}px)`;
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body></html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aetheris | Curated Luxury Experiences</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&family=Manrope:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        body {
+            background-color: #f7f9fb;
+            color: #191c1e;
+        }
+        /* Custom scrollbar for premium feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4e3ff;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#191c1e",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-container": "#d16921",
+                      "outline": "#74777f",
+                      "surface-dim": "#d8dadc",
+                      "on-secondary-fixed-variant": "#004f4f",
+                      "error": "#ba1a1a",
+                      "surface": "#f7f9fb",
+                      "on-secondary-container": "#006e6e",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#001f3f",
+                      "tertiary-fixed-dim": "#ffb68d",
+                      "on-error": "#ffffff",
+                      "tertiary": "#0e0300",
+                      "secondary-container": "#90efef",
+                      "inverse-surface": "#2d3133",
+                      "on-surface-variant": "#43474e",
+                      "on-tertiary-fixed-variant": "#763300",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed-variant": "#2f486a",
+                      "on-primary-fixed": "#001c3a",
+                      "surface-variant": "#e0e3e5",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-container": "#371400",
+                      "surface-container-low": "#f2f4f6",
+                      "inverse-primary": "#afc8f0",
+                      "surface-container": "#eceef0",
+                      "on-primary": "#ffffff",
+                      "primary-fixed": "#d4e3ff",
+                      "tertiary-fixed": "#ffdbc9",
+                      "surface-tint": "#476083",
+                      "on-primary-container": "#6f88ad",
+                      "surface-bright": "#f7f9fb",
+                      "on-tertiary-fixed": "#331200",
+                      "secondary": "#006a6a",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#e6e8ea",
+                      "primary-fixed-dim": "#afc8f0",
+                      "secondary-fixed-dim": "#76d6d5",
+                      "outline-variant": "#c4c6cf",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-secondary-fixed": "#002020",
+                      "surface-container-highest": "#e0e3e5",
+                      "primary": "#000613",
+                      "on-surface": "#191c1e",
+                      "secondary-fixed": "#93f2f2",
+                      "background": "#f7f9fb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "12px",
+                      "margin-desktop": "64px",
+                      "stack-xl": "80px",
+                      "gutter": "24px",
+                      "stack-md": "24px",
+                      "base": "8px",
+                      "margin-mobile": "20px",
+                      "container-max": "1280px",
+                      "stack-lg": "48px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Plus Jakarta Sans"],
+                      "body-md": ["Plus Jakarta Sans"],
+                      "display-lg-mobile": ["Manrope"],
+                      "display-lg": ["Manrope"],
+                      "headline-md": ["Manrope"],
+                      "body-lg": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "label-sm": ["13px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="font-body-md text-body-md">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center px-6 md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-display-lg text-display-lg text-primary font-bold tracking-tighter">Aetheris</div>
+<!-- Desktop Nav Links -->
+<div class="hidden md:flex space-x-8 items-center">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-primary border-b-2 border-primary pb-1" href="#">Destinations</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:scale-105 transition-transform duration-200" href="#">Experiences</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:scale-105 transition-transform duration-200" href="#">Stays</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:scale-105 transition-transform duration-200" href="#">Concierge</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Sign In</button>
+<button class="bg-primary text-white px-6 py-2 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:scale-105 transition-transform">Book Now</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-stack-xl max-w-container-max mx-auto px-6 md:px-margin-desktop">
+<!-- Header Section -->
+<header class="mb-stack-lg">
+<h1 class="font-display-lg text-display-lg text-on-background mb-4">Curated Experiences</h1>
+<p class="text-on-surface-variant max-w-2xl font-body-lg text-body-lg">Discover the world's most exclusive destinations through our bespoke itineraries, designed for the discerning global traveler.</p>
+</header>
+<div class="flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar Filters -->
+<aside class="w-full md:w-72 flex-shrink-0">
+<div class="bg-white p-6 rounded-3xl shadow-sm border border-outline-variant/30 sticky top-32">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline-md text-headline-md">Filters</h3>
+<span class="material-symbols-outlined text-on-surface-variant">tune</span>
+</div>
+<!-- Category Filter -->
+<div class="mb-stack-md">
+<label class="font-label-sm text-label-sm uppercase tracking-widest block mb-4">Category</label>
+<div class="space-y-3">
+<label class="flex items-center group cursor-pointer">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary-container" type="checkbox"/>
+<span class="ml-3 text-on-surface-variant group-hover:text-primary transition-colors">Luxury Retreats</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary-container" type="checkbox"/>
+<span class="ml-3 text-on-surface-variant group-hover:text-primary transition-colors">Adventure & Discovery</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary-container" type="checkbox"/>
+<span class="ml-3 text-on-surface-variant group-hover:text-primary transition-colors">Family Journeys</span>
+</label>
+</div>
+</div>
+<!-- Duration Filter -->
+<div class="mb-stack-md pt-6 border-t border-outline-variant/20">
+<label class="font-label-sm text-label-sm uppercase tracking-widest block mb-4">Duration</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="px-3 py-2 rounded-xl bg-surface-container-low border border-outline-variant/20 text-on-surface text-sm hover:border-secondary transition-colors">1-3 Days</button>
+<button class="px-3 py-2 rounded-xl bg-secondary-container text-on-secondary-container font-semibold text-sm">4-7 Days</button>
+<button class="px-3 py-2 rounded-xl bg-surface-container-low border border-outline-variant/20 text-on-surface text-sm hover:border-secondary transition-colors">8-14 Days</button>
+<button class="px-3 py-2 rounded-xl bg-surface-container-low border border-outline-variant/20 text-on-surface text-sm hover:border-secondary transition-colors">2+ Weeks</button>
+</div>
+</div>
+<!-- Price Range -->
+<div class="mb-6 pt-6 border-t border-outline-variant/20">
+<label class="font-label-sm text-label-sm uppercase tracking-widest block mb-4">Price Range (USD)</label>
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-secondary" max="50000" min="1000" step="500" type="range"/>
+<div class="flex justify-between mt-2 text-on-surface-variant text-sm font-label-sm">
+<span>$1,000</span>
+<span>$50,000+</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-4 rounded-2xl font-label-sm text-label-sm uppercase tracking-widest hover:shadow-lg transition-all active:scale-95">Update Results</button>
+</div>
+</aside>
+<!-- Main Content Grid -->
+<div class="flex-grow">
+<!-- Search & Sort Row -->
+<div class="flex flex-col sm:flex-row justify-between items-center mb-stack-md gap-4">
+<div class="relative w-full sm:w-96">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-white border-none rounded-2xl shadow-sm focus:ring-2 focus:ring-secondary/20 placeholder:text-outline" placeholder="Search destinations..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="text-sm">Sort by:</span>
+<select class="bg-transparent border-none text-primary font-semibold focus:ring-0 cursor-pointer">
+<option>Curated Choice</option>
+<option>Price: High to Low</option>
+<option>Price: Low to High</option>
+<option>Newest First</option>
+</select>
+</div>
+</div>
+<!-- Bento Grid for Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Card 1 -->
+<div class="group relative bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500">
+<div class="h-80 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="An ultra-high-resolution aerial photograph of the Amalfi Coast at sunset. The cliffside villages are bathed in warm golden light, reflecting off the deep azure Mediterranean Sea. The scene evokes a premium, tranquil atmosphere with a soft, cinematic glow. The color palette features rich oranges, deep blues, and crisp white architectural details, aligned with the Aetheris luxury travel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqpw4znVcYgYUI2TdPtcGTpgVHpeVkRGgDkRWr3eTNHn3slQN6M6QjxaTcyrZdY3D327BG1Q7kwWu7oKdL6FQAOlgYqo2MvZPYP4tNMuOBJSN1nwPjigK6mqGC3JVzj0uWNh5FrylhGIQJD9Kun4pZezi1Dorzz7IFpLLSsZbIEBiZdXWxqlmJ8U8GdsVAViu9ibl8cw5f_5FkBOzbnG1T8u-hy-iBfI-sDKu4lVG9GjTXqsq3euH2D-GD4x9IcZIMEVwZ6taqWuUn"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-full font-label-sm text-label-sm text-primary">
+                                Luxury
+                            </div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-1">Amalfi Coast Dream</h3>
+<div class="flex items-center text-on-surface-variant space-x-2">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-sm">7 Days • Private Yacht Included</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-xs uppercase tracking-widest text-outline block">From</span>
+<span class="text-xl font-bold text-secondary">$12,450</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/20">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a sophisticated traveler profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsWhwBq7mxR3jtausDqW-L3FJlj6VOreNZC308MvpbNZNLyPNHS7QufNA7_OpuwQUXJmIBrsRrvyZxf0MH87Pv0CDH6pNWKSSVRK3uh2To39t2e_ilQu1qD7M_u7veTzvbI4r5DC7ECYgLaYgwIlQg2vH9YaKbb-PMtUK-aKziW2Jh66fgyNhpV0rQXpsmHj2v2cby7fjPk7kjpFgm_ykpIcfvzS26G3UDJx21RsLV6swOHUEj-jBOPK-zK8CxYn70_6AF4e4rvZWi"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a sophisticated traveler profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmvp0vdDcGdNYvVKKBd_gbxvwjtWBiZV_8g54qoeWlzUFllPQkUkC2lLXexWFR1_rwrChAEPEelaCyJ2QATslJTraz17jhH2dUsCV5n48ROyECgSY3S_jdP6Qnd4SmdoEWQgFgVZWPcQveTbK1CfOeP89WC6wYb8Bb4lUGBXFCw8GxrgHb8q8smVmmC5Je4_lnzgxXET49vxSd33bCf20vZcikWq5XZFCJgK8M5Jzr-rXncGcUVC6sv55VoxXuYVN2prWa_OoljILK"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-primary text-white text-[10px] flex items-center justify-center">+42</div>
+</div>
+<button class="flex items-center space-x-2 text-primary font-bold group/btn">
+<span>View Details</span>
+<span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500">
+<div class="h-80 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A serene, minimalist photograph of a luxury overwater villa in the Maldives. The architecture features clean lines and natural wood, perfectly integrated with the crystal-clear turquoise waters. Sunlight filters through the scene, creating a bright, airy, and high-key aesthetic. The mood is one of ultimate exclusivity and effortless luxury, using a palette of soft teals, whites, and warm woods." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyWScgTpsUO0zp_zAP2wsL6mW6gfRxHYLmee_6CHWAaePpgiFX6s4iQrkF6MKsaOiHbQ7aN3Pp0QZ0TIqSScmaIPQmLEIlBH0e1K0J8xzYVWhl_jeexRVrwq9Ii_Wjmay9PRUVhtAUMmA-73F6LdBoeqwzJX6o2DponbQwPs9toC39ozfpVHr7LWaG6f99QLb6dC9bkRpxlDQk-1FBpNBfsyGEnd-VymC6PM4DC0ccD6OHSoNwL5vWVkf3g470XrJkvsdB6Mm_xupx"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-full font-label-sm text-label-sm text-primary">
+                                Retreat
+                            </div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-1">Maldives Sanctuary</h3>
+<div class="flex items-center text-on-surface-variant space-x-2">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-sm">5 Days • All-Inclusive Spa</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-xs uppercase tracking-widest text-outline block">From</span>
+<span class="text-xl font-bold text-secondary">$8,900</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/20">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a sophisticated traveler profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvaWNEwAD12bAmDJb18w7agSykmLCUn2ornTLp0yGR8R-fin_TpBiZvIBfCKrXG4_H2X8K2fzZKyP-DEE-yBM0WWhxE-rGwLa1VUvUhIcCc-unsc5RNdYqTKRAyxnjXGN3_3GYWSElgr5LiIXNNwAVrF8ppdL-nE8LK_Chd-jf6Y-XgVv6XrAhcJDp3scZ4TJw0HfmoLcgKElECTH2YY8E96lIFyZWuJgRnZI12_nBcjoH7FKKd6S-rgamGJk8cwl2ZUGTRTZ92rQs"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-primary text-white text-[10px] flex items-center justify-center">+18</div>
+</div>
+<button class="flex items-center space-x-2 text-primary font-bold group/btn">
+<span>View Details</span>
+<span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500">
+<div class="h-80 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="An expansive, cinematic landscape of the Sahara Desert dunes under a vast, star-filled sky. A small, luxury tented camp is visible in the distance, glowing with soft amber light. The lighting is low-key yet detailed, capturing the texture of the sand ripples. The color palette focuses on deep navy, burning oranges, and soft beige, evoking a sense of epic discovery and premium comfort." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfnxI9bHCf2UVbGXrX7smahPd2uy4SEIpelZmPgoAEEdTC7VYPX7-37oZ4ifzbIJVW9z5aBwHL8wuBB7Br4EQ6iUm3F6WoLa3XixDpsczLehmoFP5D_Be73JEXvHJvBZY6ie_oVhISAEEw-pocCNrCnA-4M5VV1AwQCJPHmGlWmbxVEHaf5QhCbWYHXX9_Y3YcpxgjqcrSF3UnLcrhlhZmeT6fP-jXBpBVC8XpuwyFY_ppUwhogZycP7X04RDjTVsOH621dgHiHZIS"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-full font-label-sm text-label-sm text-primary">
+                                Adventure
+                            </div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-1">Sahara Star Gazing</h3>
+<div class="flex items-center text-on-surface-variant space-x-2">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-sm">4 Days • Luxury Glamping</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-xs uppercase tracking-widest text-outline block">From</span>
+<span class="text-xl font-bold text-secondary">$5,200</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/20">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a sophisticated traveler profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcGmQCRqqcS_aQGnaGqsN1dDN1ZihDvS2aTwtG3ijP4fgfuD_4-nHOuDbzUdP9BmXnnp4lbgNIKRoVi99fLsX6aM-D8Ptl2LwMudb6C3IaHxBWMbv9zj45r_0Nj9vgkXO3XXvKmpDXevq4iq7D47wtUzN1ZjuUB-Cm3diKqqGXvtc6SbuAcho7iWsGp0znTD-c1w-q2i9dbpVE526VY6boyUa2pDJu-9btnqHhA1tuMcTU8g9-QI3XIeSyBxlOlYAwFnjvGXzW-lD0"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-primary text-white text-[10px] flex items-center justify-center">+12</div>
+</div>
+<button class="flex items-center space-x-2 text-primary font-bold group/btn">
+<span>View Details</span>
+<span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group relative bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500">
+<div class="h-80 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A lush, detailed image of a traditional Japanese zen garden in Kyoto during the autumn season. The vibrant red and orange maple leaves contrast beautifully with the moss-covered stones and a minimalist wooden tea house. Soft, diffused lighting creates a serene and contemplative mood. The composition is balanced and elegant, using a palette of deep reds, mossy greens, and natural wood tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlkGs5gxKXq59_2MzqoYjCldRaddaZFJUjGpvjMMHe-EyXXel7JcgYmxQGKgrQCH6HnW02HVo5Z9HCQ-YPI2cDLxoZ-dtGo9ihGgtvnsCUhPjQLXVwYSrcw02vDGEj90oezwGEaGblZsXFpc4zvJlHskuVQiyA8wt-TBbWPoxKNcqnDhaZolbuAC4LZSNwVY5tJaYiFuVA4luJ4KheSs_91fXbbFjrrql6bWBAX_cjSIPIHX_OnOId8oI1E3SRxrzK-oD90Z0G0ofW"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-full font-label-sm text-label-sm text-primary">
+                                Cultural
+                            </div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-1">Kyoto Traditions</h3>
+<div class="flex items-center text-on-surface-variant space-x-2">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-sm">10 Days • Private Tea Ceremonies</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-xs uppercase tracking-widest text-outline block">From</span>
+<span class="text-xl font-bold text-secondary">$15,600</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/20">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a sophisticated traveler profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQi3u3MZdhDCaK5heyVuHJxjEAUrGm7YCROeDMTFV24ZY6DLgBlr55FpM0AM2TEfRAtmAssIv6JtsD72nvVuas31uiclKde3nGkJc_NNsy4uSmt7PrB59gUYSBCuevykqSpQwKAzhamsSmb9HIH60dsGRJBPuxkl6kjNfTQG4jpjbTw-R0YAzpJyP61bPSflwzj7ozUD93ptk2UGORWMKeK_BRJdw8tYrbUORKk5r_RQTcWUfJSYbusx3_6gFi0W09f6G8AVlVTtej"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-primary text-white text-[10px] flex items-center justify-center">+5</div>
+</div>
+<button class="flex items-center space-x-2 text-primary font-bold group/btn">
+<span>View Details</span>
+<span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-stack-lg flex items-center justify-center space-x-4">
+<button class="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-white hover:shadow-md transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex items-center space-x-2">
+<button class="w-12 h-12 rounded-full bg-primary text-white font-bold">1</button>
+<button class="w-12 h-12 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors font-bold">2</button>
+<button class="w-12 h-12 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors font-bold">3</button>
+<span class="px-2">...</span>
+<button class="w-12 h-12 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors font-bold">12</button>
+</div>
+<button class="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-white hover:shadow-md transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="bg-on-background w-full py-stack-lg border-t border-outline-variant">
+<div class="max-w-container-max mx-auto px-6 md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="font-display-lg text-display-lg text-surface font-bold tracking-tighter">Aetheris</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors font-body-md" href="#">Privacy Policy</a>
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors font-body-md" href="#">Terms of Service</a>
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors font-body-md" href="#">Sustainability</a>
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors font-body-md" href="#">Press</a>
+</div>
+<div class="text-surface-variant opacity-60 text-sm font-body-md">
+                © 2024 Aetheris Luxury Travel. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Simple Interaction logic
+        document.querySelectorAll('input[type="range"]').forEach(input => {
+            input.addEventListener('input', e => {
+                // Potential price update logic could go here
+            });
+        });
+
+        // Search highlight interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-2', 'ring-secondary/20');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-2', 'ring-secondary/20');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md', 'bg-white/90');
+                nav.classList.remove('bg-white/70');
+            } else {
+                nav.classList.remove('shadow-md', 'bg-white/90');
+                nav.classList.add('bg-white/70');
+            }
+        });
+    </script>
+</body></html>

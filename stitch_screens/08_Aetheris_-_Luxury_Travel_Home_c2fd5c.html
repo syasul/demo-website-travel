@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#d16921",
+                        "outline": "#74777f",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed-variant": "#004f4f",
+                        "error": "#ba1a1a",
+                        "surface": "#f7f9fb",
+                        "on-secondary-container": "#006e6e",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#001f3f",
+                        "tertiary-fixed-dim": "#ffb68d",
+                        "on-error": "#ffffff",
+                        "tertiary": "#0e0300",
+                        "secondary-container": "#90efef",
+                        "inverse-surface": "#2d3133",
+                        "on-surface-variant": "#43474e",
+                        "on-tertiary-fixed-variant": "#763300",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#2f486a",
+                        "on-primary-fixed": "#001c3a",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#371400",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-primary": "#afc8f0",
+                        "surface-container": "#eceef0",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#d4e3ff",
+                        "tertiary-fixed": "#ffdbc9",
+                        "surface-tint": "#476083",
+                        "on-primary-container": "#6f88ad",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-fixed": "#331200",
+                        "secondary": "#006a6a",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-fixed-dim": "#afc8f0",
+                        "secondary-fixed-dim": "#76d6d5",
+                        "outline-variant": "#c4c6cf",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed": "#002020",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary": "#000613",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed": "#93f2f2",
+                        "background": "#f7f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "12px",
+                        "margin-desktop": "64px",
+                        "stack-xl": "80px",
+                        "gutter": "24px",
+                        "stack-md": "24px",
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-display-lg text-display-lg text-primary font-bold tracking-tighter">Aetheris</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-primary border-b-2 border-primary pb-1 transition-all duration-300" href="#">Destinations</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Experiences</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Stays</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Concierge</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-transform duration-200 hover:scale-105">Sign In</button>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:scale-105 transition-transform duration-200">Book Now</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-screen flex items-center justify-center overflow-hidden">
+<!-- Shader Background -->
+<!-- STITCH_SHADER_START:ANIMATION_4 class="absolute inset-0 w-full h-full z-0" -->
+<div class="absolute inset-0 w-full h-full z-0" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_4" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_4');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+
+void main() {
+    vec2 uv = v_texCoord;
+    float time = u_time * 0.5;
+    
+    // Create organic fluid motion using multiple sine waves
+    float wave = sin(uv.x * 3.0 + time) * 0.5 + 0.5;
+    wave += sin(uv.y * 4.0 - time * 0.8) * 0.3;
+    wave += sin((uv.x + uv.y) * 2.0 + time * 1.2) * 0.2;
+    
+    // Interpolate between Deep Sea Blue and Tropical Teal
+    vec3 colorA = vec3(0.0, 0.12, 0.25); // Deep Sea Blue
+    vec3 colorB = vec3(0.0, 0.5, 0.5);   // Tropical Teal
+    
+    vec3 finalColor = mix(colorA, colorB, wave);
+    
+    // Add a hint of Sunset Orange in the "highlights"
+    float orangeGlow = smoothstep(0.8, 1.0, wave);
+    vec3 orange = vec3(1.0, 0.5, 0.2);
+    finalColor = mix(finalColor, orange, orangeGlow * 0.2);
+    
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_4 -->
+<!-- Hero Content Overlay -->
+<div class="relative z-10 text-center px-margin-mobile md:px-0">
+<h1 class="font-display-lg text-[40px] md:text-display-lg text-primary mb-stack-sm tracking-tighter reveal active">Experience the Extraordinary</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-stack-lg reveal active" style="transition-delay: 200ms;">
+                Bespoke journeys curated for the discerning traveler. Discover hidden gems and luxury escapes that redefine the art of travel.
+            </p>
+<!-- Floating Search Bar -->
+<div class="max-w-4xl mx-auto glass-card rounded-full p-2 shadow-2xl flex flex-col md:flex-row items-center border border-white/50 animate-float reveal active" style="transition-delay: 400ms;">
+<div class="flex-1 flex items-center px-6 py-3 w-full md:w-auto border-b md:border-b-0 md:border-r border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary mr-3" data-icon="location_on">location_on</span>
+<div class="flex flex-col items-start">
+<span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Where to?</span>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-body-md placeholder:text-outline-variant w-full" placeholder="Search destinations" type="text"/>
+</div>
+</div>
+<div class="flex-1 flex items-center px-6 py-3 w-full md:w-auto border-b md:border-b-0 md:border-r border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary mr-3" data-icon="calendar_today">calendar_today</span>
+<div class="flex flex-col items-start">
+<span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">When?</span>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-body-md placeholder:text-outline-variant w-full" placeholder="Add dates" type="text"/>
+</div>
+</div>
+<div class="flex-1 flex items-center px-6 py-3 w-full md:w-auto">
+<span class="material-symbols-outlined text-secondary mr-3" data-icon="group">group</span>
+<div class="flex flex-col items-start">
+<span class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Guests</span>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-body-md placeholder:text-outline-variant w-full" placeholder="Add guests" type="text"/>
+</div>
+</div>
+<button class="bg-secondary text-on-secondary h-12 w-12 md:h-14 md:w-14 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 shrink-0 m-1">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+<span class="text-[10px] uppercase tracking-[0.3em] font-bold">Scroll</span>
+<div class="w-[1px] h-12 bg-primary/30 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1/2 bg-primary animate-[bounce_2s_infinite]"></div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-xl">
+<!-- Top Destinations Section -->
+<section class="mb-stack-xl">
+<div class="flex flex-col md:flex-row justify-between items-end mb-stack-lg reveal">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] block mb-2">Curated Escapes</span>
+<h2 class="font-display-lg text-headline-md md:text-display-lg text-primary tracking-tighter">Top Destinations</h2>
+</div>
+<a class="group flex items-center text-primary font-bold hover:text-secondary transition-colors duration-300" href="#">
+                    Explore all destinations
+                    <span class="material-symbols-outlined ml-2 group-hover:translate-x-2 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Bento Grid of Destinations -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Card -->
+<div class="md:col-span-8 relative rounded-[24px] overflow-hidden group h-[500px] reveal">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide-angle panoramic view of a secluded tropical beach with powdery white sand and turquoise crystalline water. The scene is illuminated by the soft, golden light of a late afternoon sun, creating a serene and exclusive atmosphere. In the background, lush palm trees sway gently against a clear blue sky, embodying a premium luxury travel aesthetic with vibrant tropical teal and deep sea blue tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVYewfj5-JKx3kj0sHtgZIdPQX628X9AGcemvAIsgFYpYR0aG1r45qkEVLD4HwFsDxrX-WI4g84ybDbixzr1iUUoMyGTdFpeDTLYYQqAHJc2TMqqEVWxfojzq0A6cS83YRbPndDWzARWjH5KG0jhpdLTeq4ie8c3iE094HRI1XTSBIIdKaaeavQOz43CNdoergzct9dpGtqv_qsmbPO78U574c8vRXzRzs7B3pgtgyHkAU6Hw26Qs8SA5XoG5dMZmppzFAHQBxFWLn"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 right-0 p-stack-md glass-card border-t border-white/20 m-6 rounded-2xl flex justify-between items-end">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Maldives Archipelago</h3>
+<p class="text-on-surface-variant font-body-md">Pristine waters and overwater villas</p>
+</div>
+<div class="flex items-center text-secondary font-bold">
+                            From $12,500
+                        </div>
+</div>
+</div>
+<!-- Small Card 1 -->
+<div class="md:col-span-4 relative rounded-[24px] overflow-hidden group h-[500px] md:h-auto reveal" style="transition-delay: 100ms;">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A sophisticated cityscape of London at dusk, with the glowing lights of luxury boutiques and heritage architecture reflecting in the rain-kissed cobblestones. The atmosphere is worldly and refined, featuring a palette of slate greys, warm amber light, and deep navy. The lighting is moody yet inviting, capturing the essence of a high-end urban concierge experience in a modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhYdFX-W3inhLgqvGVWjg8KmB9Jjj0s9uneNbHWoPm_ZHyVFz_L41RiBMDWtl3PC2QzVARiaWeslmkcei6GhiVzGl1afuxZBz_N5EAWqn5ZYGpHO2GcD2U8KvVxzmwn2gykSzX_KYfolwGu6OHjMUhumuW39fTBNDTgS5bpaZVtRw0_m7zOAaprhVGf6YlhhqJWlGniZKFL6Ax33dKE2M4W-MMBflsuVmLXHnErfy8YP5gH_gY52UEUFSKyo_2SSmn2QIBUyrKN8Lo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 right-0 p-stack-md glass-card border-t border-white/20 m-6 rounded-2xl">
+<h3 class="font-headline-md text-headline-md text-primary">London Urbanity</h3>
+<p class="text-on-surface-variant font-body-md">The height of sophistication</p>
+</div>
+</div>
+<!-- Small Card 2 -->
+<div class="md:col-span-4 relative rounded-[24px] overflow-hidden group h-[400px] reveal" style="transition-delay: 200ms;">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Stunning alpine mountain peaks dusted with fresh snow under a crisp, high-altitude sun. The scene features deep shadows and brilliant highlights, creating a sense of dramatic elevation and crystalline clarity. A lone, modern luxury chalet with glass walls is nestled on a ridge, perfectly blending with the rugged landscape in a palette of icy blues and warm wood tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAExvbX0QJWEbVNxKzhgvN3WWxnGGKzDbce3IfsEHIXfqPkq_xYsLMSKnFaPotFvRo6kVh5XC44TBOPgwjgr-rOQ9WTOUGVE9sb6L3I51cmztmpYR2zaEfrWa9JaQ7qhXYmqcf91HSrGHcu7--jW6jAWPPWLwENCqpQ0DNNncNgEjrn67vI11oMBpx-aXycizr8GE9iHDru8sG5PFjEKNIn7lmxlO4aHDrW_7fRPB-wBBOczMDF9f29lL3dmbVjJkJnZabUGzXJ_XGa"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 right-0 p-stack-md glass-card border-t border-white/20 m-6 rounded-2xl">
+<h3 class="font-headline-md text-headline-md text-primary">Swiss Alps</h3>
+<p class="text-on-surface-variant font-body-md">Majestic peaks &amp; private retreats</p>
+</div>
+</div>
+<!-- Medium Card -->
+<div class="md:col-span-8 relative rounded-[24px] overflow-hidden group h-[400px] reveal" style="transition-delay: 300ms;">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A romantic evening view of the Venice canals with gondolas gently moored against ancient stone quays. The sky is a deep indigo, and lanterns cast a warm, flickering orange glow onto the rippling water. The aesthetic is timelessly elegant and effortless, using a sophisticated color palette of sunset orange and deep sea blue to evoke a feeling of high-end hospitality and serene history." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEVK7M6u087oWA9ZIuSxU4-P8TvoZo7hf5nacEwk5Lb0QAaNGEpgRrotDTTL4ndkcESmtHm8C9xiNhZvnxBq38DY2cUHLlPEuYHRaLnAG09fNy6JFAzGHLPrJetgs5g06MIDs0kqSyfYcqGCj120vzOaMl8vgnQ1Rq8YRKV6Oo9OORQaIrlAi1rke1Ip9IMUhhIZjajhWL1HtWCg1_tneO5d8490p0m7xVUm1FaEcg3V72MEbYQZrH61BtJ4vQC46wl1-2rwCScq_-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 right-0 p-stack-md glass-card border-t border-white/20 m-6 rounded-2xl flex justify-between items-end">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Venice Serenades</h3>
+<p class="text-on-surface-variant font-body-md">Timeless romance on the canals</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:scale-105 transition-transform">Explore</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Slider Section -->
+<section class="py-stack-xl bg-surface-container-low rounded-[48px] px-margin-mobile md:px-margin-desktop mb-stack-xl reveal">
+<div class="text-center mb-stack-lg">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] block mb-2">Our Travelers</span>
+<h2 class="font-display-lg text-headline-md md:text-display-lg text-primary tracking-tighter">Shared Experiences</h2>
+</div>
+<div class="relative overflow-hidden" id="testimonial-slider">
+<div class="flex transition-transform duration-700 ease-in-out" id="slider-track">
+<!-- Testimonial 1 -->
+<div class="min-w-full px-4">
+<div class="max-w-3xl mx-auto text-center">
+<span class="material-symbols-outlined text-6xl text-secondary-fixed-dim mb-stack-sm" data-icon="format_quote" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<blockquote class="font-display-lg text-headline-md text-on-surface italic mb-stack-md">
+                                "The level of detail and personalization provided by Aetheris is unparalleled. Our journey through the Amalfi Coast was more than a trip; it was a series of perfectly orchestrated moments that felt both effortless and deeply profound."
+                            </blockquote>
+<div class="flex items-center justify-center space-x-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Traveler" data-alt="A close-up portrait of a sophisticated middle-aged man with a kind, successful expression. He is wearing a high-end linen shirt, and the background is a soft-focus Mediterranean villa. The lighting is bright and airy, following the luxury concierge brand aesthetic with a palette of whites and soft neutrals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgFIUiykm0JvOqD3GSrIDIbG1UX-cwQvRlostYU9SMO5HMg6DWWer5jyN1CgOFWpF4Z_27TjzcM0BQvcz3_WKpZU69z0_18uPEl--6x59In8Ky6AXc8OzqKkWi05ddLt6CDaL2hpO9ZUuPNdqn6IFga7fqN1EU9VBbJZ_TWB8dGsFqeg8LuFEqNpUy4dEwJcoHoxe6M3ojORUi2XudQ8qi-QXO6wJ2REktNwNOHVU4F-VU11Mw0p8sxYzPd3Xb-CGRfm-vNzLAcQ_P"/>
+</div>
+<div class="text-left">
+<p class="font-bold text-primary">Julian Montgomery</p>
+<p class="text-sm text-on-surface-variant uppercase tracking-widest">Venture Capitalist</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="min-w-full px-4">
+<div class="max-w-3xl mx-auto text-center">
+<span class="material-symbols-outlined text-6xl text-secondary-fixed-dim mb-stack-sm" data-icon="format_quote" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<blockquote class="font-display-lg text-headline-md text-on-surface italic mb-stack-md">
+                                "Aetheris transformed our perception of luxury. Their concierge didn't just book hotels; they curated access to private galleries and estate dinners that we simply couldn't have found elsewhere. Truly extraordinary."
+                            </blockquote>
+<div class="flex items-center justify-center space-x-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Traveler" data-alt="A portrait of a confident woman in her 30s with a professional and worldly look. She has a warm smile and is set against a clean, modern architectural background with glass and white stone. The lighting is high-key and soft, emphasizing a premium and effortless style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsST8SOd5s5-NUP7mjEnPUuUjqi0bJsB1FiOV-KzQl534eTn1bfN8hXkIAme3tcIDagQVuzLmJIXbqngpuYKfrhaf0TQtFkyThta83n-N_Im04tlSetFh3D0LaeQefDDTZlDVj0gARE9S-so6H0vShf_6wYhoBV50hCSpyCxU0TTQ2mrTslpMggS5Vo38GsOKDK84iYgZn-Dl3Hr-fmQK5kUOR6wef9_u-KxaMcBPjWZJMPwVQOlisdIS_ghWQVFx3FioT6tbO_fhj"/>
+</div>
+<div class="text-left">
+<p class="font-bold text-primary">Sophia Chen</p>
+<p class="text-sm text-on-surface-variant uppercase tracking-widest">Architectural Director</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Slider Controls -->
+<div class="flex justify-center space-x-4 mt-stack-lg">
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-on-primary hover:border-primary transition-all" onclick="prevSlide()">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-on-primary hover:border-primary transition-all" onclick="nextSlide()">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="relative rounded-[48px] overflow-hidden h-[500px] flex items-center justify-center text-center reveal">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A breathtaking view of a serene mountain lake at sunrise, with mist rising off the glassy water. The lighting is ethereal and soft, with layers of blue, lavender, and pink in the sky. The overall feeling is one of profound calm and exclusivity, perfectly aligned with the luxury concierge travel brand's aesthetic of effortless transition and high-fidelity engagement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEGUVBPo33mwHFHdZOOosooi8FG83FdPP8fHIgBdrzCfVDDbelLOpeV89EOEWYKfYOzmfpWpFe_0B_0DMXz62UDVcpLkIrZIPtn67Nyfxp3tTPxZSJq3E5pwA7K60HOQkBl0mVPZeIjNJGmOoFMmuk7OqD9CYrQ2ngYhpvOURKViAgRBvfjVs6KO5tBfkWmAWgb1VVmlifVICpw7VTPk9oRYDcVyGv4ITVEM2eHDwk5ad-6Y1VBEiLgAG4vny0gloeE5gpEGiFUF74"/>
+<div class="absolute inset-0 bg-primary/40 backdrop-blur-[2px]"></div>
+<div class="relative z-10 px-margin-mobile">
+<h2 class="font-display-lg text-[32px] md:text-display-lg text-white mb-stack-md tracking-tighter">Your Journey Awaits</h2>
+<p class="text-white/80 max-w-xl mx-auto mb-stack-lg text-body-lg">Begin your story with Aetheris. Let our curators design an itinerary that reflects your unique spirit of adventure.</p>
+<div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+<button class="bg-secondary text-on-secondary px-10 py-4 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:scale-110 transition-transform duration-300">Start Planning</button>
+<button class="text-white border border-white/40 px-10 py-4 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:bg-white hover:text-primary transition-all duration-300 backdrop-blur-md">View Brochures</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-on-background py-stack-lg text-surface">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-start md:items-center space-y-stack-lg md:space-y-0">
+<div class="flex flex-col space-y-4">
+<div class="font-display-lg text-display-lg text-surface font-bold tracking-tighter">Aetheris</div>
+<p class="text-surface-variant opacity-80 font-body-md max-w-xs">Elevating travel to an art form through curated experiences and impeccable service.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-stack-lg w-full md:w-auto">
+<div class="flex flex-col space-y-2">
+<span class="font-label-sm text-surface-variant opacity-60 uppercase mb-2">Company</span>
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col space-y-2">
+<span class="font-label-sm text-surface-variant opacity-60 uppercase mb-2">Explore</span>
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors" href="#">Sustainability</a>
+<a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-secondary-fixed transition-colors" href="#">Press</a>
+</div>
+<div class="flex flex-col space-y-4 col-span-2">
+<span class="font-label-sm text-surface-variant opacity-60 uppercase">Stay Connected</span>
+<div class="flex space-x-4">
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-on-background transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="public">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-on-background transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="alternate_email">alternate_email</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop mt-stack-lg pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center opacity-60 text-sm">
+<span>© 2024 Aetheris Luxury Travel. All rights reserved.</span>
+<div class="flex space-x-8 mt-4 md:mt-0">
+<span>Designed for Modern Explorers</span>
+<span>ISO 9001 Certified Luxury</span>
+</div>
+</div>
+</footer>
+<script>
+        // Scroll Reveal Logic
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Slider Logic
+        let currentSlide = 0;
+        const track = document.getElementById('slider-track');
+        const slides = track.children.length;
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides) % slides;
+            updateSlider();
+        }
+
+        // Auto-advance testimonials
+        setInterval(nextSlide, 8000);
+
+        // Header Background Movement Interaction
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            document.querySelectorAll('.animate-float').forEach(el => {
+                el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    </script>
+</body></html>
