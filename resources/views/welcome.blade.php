@@ -71,6 +71,28 @@
 </header>
 
 <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-xl">
+    <!-- Stats Section -->
+    <section class="py-12 border-y border-outline-variant/20 mb-stack-xl reveal">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter text-center">
+            <div class="flex flex-col items-center">
+                <span class="font-display-lg text-display-lg md:text-[56px] text-secondary font-bold tracking-tight">12+</span>
+                <span class="text-xs uppercase tracking-widest font-semibold text-on-surface-variant mt-2">Years of Curation</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="font-display-lg text-display-lg md:text-[56px] text-secondary font-bold tracking-tight">98%</span>
+                <span class="text-xs uppercase tracking-widest font-semibold text-on-surface-variant mt-2">Satisfaction Rate</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="font-display-lg text-display-lg md:text-[56px] text-secondary font-bold tracking-tight">150+</span>
+                <span class="text-xs uppercase tracking-widest font-semibold text-on-surface-variant mt-2">Hidden Escapes</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="font-display-lg text-display-lg md:text-[56px] text-secondary font-bold tracking-tight">24/7</span>
+                <span class="text-xs uppercase tracking-widest font-semibold text-on-surface-variant mt-2">Concierge Care</span>
+            </div>
+        </div>
+    </section>
+
     <!-- Top Destinations Section -->
     <section class="mb-stack-xl">
         <div class="flex flex-col md:flex-row justify-between items-end mb-stack-lg reveal">
@@ -151,6 +173,129 @@
         </div>
     </section>
 
+    <!-- Signature Experiences Section -->
+    <section class="mb-stack-xl reveal">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-stack-lg">
+            <div>
+                <span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] block mb-2">Exclusive Curations</span>
+                <h2 class="font-display-lg text-headline-md md:text-display-lg text-primary tracking-tighter">Signature Experiences</h2>
+            </div>
+            <p class="text-on-surface-variant font-body-md max-w-md md:text-right">
+                Beyond traditional travel. We craft extraordinary moments tailored to your exact definition of adventure.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+            <!-- Exp 1 -->
+            <div class="group relative rounded-[28px] overflow-hidden h-[360px] cursor-pointer">
+                <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="@if($maldives){{ $maldives->image_url }}@else{{ asset('images/hero.png') }}@endif" alt="Yacht"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent opacity-80"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-secondary-fixed-dim bg-white/10 px-2.5 py-1 rounded-full backdrop-blur-md inline-block mb-3">Maritime</span>
+                    <h3 class="font-headline-md text-xl text-white mb-2">Private Yacht Charter</h3>
+                    <p class="text-white/75 text-sm line-clamp-2">Sail turquoise waters with a dedicated crew and customized itinerary.</p>
+                </div>
+            </div>
+            <!-- Exp 2 -->
+            <div class="group relative rounded-[28px] overflow-hidden h-[360px] cursor-pointer" style="transition-delay: 100ms;">
+                <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="@if($alps){{ $alps->image_url }}@else{{ asset('images/hero.png') }}@endif" alt="Aviation"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent opacity-80"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-secondary-fixed-dim bg-white/10 px-2.5 py-1 rounded-full backdrop-blur-md inline-block mb-3">Aviation</span>
+                    <h3 class="font-headline-md text-xl text-white mb-2">Helicopter Alpine Tour</h3>
+                    <p class="text-white/75 text-sm line-clamp-2">Soar over dramatic peaks and land directly on glacier summits.</p>
+                </div>
+            </div>
+            <!-- Exp 3 -->
+            <div class="group relative rounded-[28px] overflow-hidden h-[360px] cursor-pointer" style="transition-delay: 200ms;">
+                <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="@if($london){{ $london->image_url }}@else{{ asset('images/hero.png') }}@endif" alt="Gastronomy"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent opacity-80"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-secondary-fixed-dim bg-white/10 px-2.5 py-1 rounded-full backdrop-blur-md inline-block mb-3">Gastronomy</span>
+                    <h3 class="font-headline-md text-xl text-white mb-2">Bespoke Dining</h3>
+                    <p class="text-white/75 text-sm line-clamp-2">Private dinners by Michelin-starred chefs in remote settings.</p>
+                </div>
+            </div>
+            <!-- Exp 4 -->
+            <div class="group relative rounded-[28px] overflow-hidden h-[360px] cursor-pointer" style="transition-delay: 300ms;">
+                <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="@if($venice){{ $venice->image_url }}@else{{ asset('images/hero.png') }}@endif" alt="Wellness"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent opacity-80"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-secondary-fixed-dim bg-white/10 px-2.5 py-1 rounded-full backdrop-blur-md inline-block mb-3">Wellness</span>
+                    <h3 class="font-headline-md text-xl text-white mb-2">Sanctuary Retreats</h3>
+                    <p class="text-white/75 text-sm line-clamp-2">Rebalance your body and mind in isolated luxury wellness estates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us / Pillars Section -->
+    <section class="mb-stack-xl reveal">
+        <div class="text-center mb-stack-lg">
+            <span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] block mb-2">The INXDVI Difference</span>
+            <h2 class="font-display-lg text-headline-md md:text-display-lg text-primary tracking-tighter">Why Travel With Us</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+            <!-- Pillar 1 -->
+            <div class="bg-surface-container-low rounded-[32px] p-stack-md border border-outline-variant/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-start">
+                <div class="w-12 h-12 rounded-2xl bg-secondary-fixed-dim/30 flex items-center justify-center mb-6">
+                    <span class="material-symbols-outlined text-secondary text-2xl" data-icon="auto_awesome">auto_awesome</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-primary mb-3">Tailored Just For You</h3>
+                <p class="text-on-surface-variant font-body-md leading-relaxed">
+                    No template itineraries. Every single detail of your journey is crafted around your unique desires, preferences, and pace.
+                </p>
+            </div>
+            
+            <!-- Pillar 2 -->
+            <div class="bg-surface-container-low rounded-[32px] p-stack-md border border-outline-variant/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-start" style="transition-delay: 100ms;">
+                <div class="w-12 h-12 rounded-2xl bg-secondary-fixed-dim/30 flex items-center justify-center mb-6">
+                    <span class="material-symbols-outlined text-secondary text-2xl" data-icon="support_agent">support_agent</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-primary mb-3">24/7 Dedicated Concierge</h3>
+                <p class="text-on-surface-variant font-body-md leading-relaxed">
+                    Enjoy seamless communication directly with our travel designers on WhatsApp, providing instant support and live adjustments.
+                </p>
+            </div>
+            
+            <!-- Pillar 3 -->
+            <div class="bg-surface-container-low rounded-[32px] p-stack-md border border-outline-variant/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-start" style="transition-delay: 200ms;">
+                <div class="w-12 h-12 rounded-2xl bg-secondary-fixed-dim/30 flex items-center justify-center mb-6">
+                    <span class="material-symbols-outlined text-secondary text-2xl" data-icon="vpn_key">vpn_key</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-primary mb-3">Exclusive VIP Access</h3>
+                <p class="text-on-surface-variant font-body-md leading-relaxed">
+                    Uncover private villas, local curators, and skip-the-line privileges that are unavailable to the general public.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moments of Wonder Gallery Section -->
+    <section class="mb-stack-xl reveal">
+        <div class="text-center mb-stack-lg">
+            <span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] block mb-2">Visual Journeys</span>
+            <h2 class="font-display-lg text-headline-md md:text-display-lg text-primary tracking-tighter">Moments of Wonder</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+            <div class="rounded-[24px] overflow-hidden h-[240px] md:h-[300px] relative group">
+                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="@if($maldives){{ $maldives->image_url }}@else{{ asset('images/hero.png') }}@endif" alt="Maldives"/>
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+            </div>
+            <div class="rounded-[24px] overflow-hidden h-[240px] md:h-[300px] relative group mt-6 md:mt-12">
+                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="@if($alps){{ $alps->image_url }}@else{{ asset('images/hero.png') }}@endif" alt="Alps"/>
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+            </div>
+            <div class="rounded-[24px] overflow-hidden h-[240px] md:h-[300px] relative group">
+                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="@if($london){{ $london->image_url }}@else{{ asset('images/hero.png') }}@endif" alt="London"/>
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+            </div>
+            <div class="rounded-[24px] overflow-hidden h-[240px] md:h-[300px] relative group mt-6 md:mt-12">
+                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="@if($venice){{ $venice->image_url }}@else{{ asset('images/hero.png') }}@endif" alt="Venice"/>
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Slider Section -->
     <section class="py-stack-xl bg-surface-container-low rounded-[48px] px-margin-mobile md:px-margin-desktop mb-stack-xl reveal">
         <div class="text-center mb-stack-lg">
@@ -210,6 +355,134 @@
         </div>
     </section>
 
+    <!-- Our Curators Section -->
+    <section class="mb-stack-xl reveal">
+        <div class="text-center mb-stack-lg">
+            <span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] block mb-2">Our Artisans</span>
+            <h2 class="font-display-lg text-headline-md md:text-display-lg text-primary tracking-tighter">Meet Your Curators</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+            <!-- Curator 1 -->
+            <div class="bg-surface-container-low rounded-[32px] p-6 border border-outline-variant/20 hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center">
+                <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-secondary shadow-md">
+                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgFIUiykm0JvOqD3GSrIDIbG1UX-cwQvRlostYU9SMO5HMg6DWWer5jyN1CgOFWpF4Z_27TjzcM0BQvcz3_WKpZU69z0_18uPEl--6x59In8Ky6AXc8OzqKkWi05ddLt6CDaL2hpO9ZUuPNdqn6IFga7fqN1EU9VBbJZ_TWB8dGsFqeg8LuFEqNpUy4dEwJcoHoxe6M3ojORUi2XudQ8qi-QXO6wJ2REktNwNOHVU4F-VU11Mw0p8sxYzPd3Xb-CGRfm-vNzLAcQ_P" alt="Eleanor"/>
+                </div>
+                <h3 class="font-headline-md text-lg text-primary mb-1">Eleanor Vance</h3>
+                <span class="text-[10px] uppercase tracking-widest font-bold text-secondary mb-3">European Heritage Expert</span>
+                <p class="text-on-surface-variant text-sm mb-6">10+ years designing private castle tours and alpine retreats in Switzerland & Italy.</p>
+                <a href="https://wa.me/6281330012100" target="_blank" rel="noopener noreferrer" class="bg-primary text-white hover:bg-secondary px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold transition-colors duration-200">Chat with Eleanor</a>
+            </div>
+            <!-- Curator 2 -->
+            <div class="bg-surface-container-low rounded-[32px] p-6 border border-outline-variant/20 hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center" style="transition-delay: 100ms;">
+                <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-secondary shadow-md">
+                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsST8SOd5s5-NUP7mjEnPUuUjqi0bJsB1FiOV-KzQl534eTn1bfN8hXkIAme3tcIDagQVuzLmJIXbqngpuYKfrhaf0TQtFkyThta83n-N_Im04tlSetFh3D0LaeQefDDTZlDVj0gARE9S-so6H0vShf_6wYhoBV50hCSpyCxU0TTQ2mrTslpMggS5Vo38GsOKDK84iYgZn-Dl3Hr-fmQK5kUOR6wef9_u-KxaMcBPjWZJMPwVQOlisdIS_ghWQVFx3FioT6tbO_fhj" alt="Marcus"/>
+                </div>
+                <h3 class="font-headline-md text-lg text-primary mb-1">Marcus Sterling</h3>
+                <span class="text-[10px] uppercase tracking-widest font-bold text-secondary mb-3">Tropical & Marine Curator</span>
+                <p class="text-on-surface-variant text-sm mb-6">Expert in arranging yacht charters and overwater villa stays in the Maldives & Fiji.</p>
+                <a href="https://wa.me/6281330012100" target="_blank" rel="noopener noreferrer" class="bg-primary text-white hover:bg-secondary px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold transition-colors duration-200">Chat with Marcus</a>
+            </div>
+            <!-- Curator 3 -->
+            <div class="bg-surface-container-low rounded-[32px] p-6 border border-outline-variant/20 hover:shadow-xl transition-all duration-300 text-center flex flex-col items-center" style="transition-delay: 200ms;">
+                <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-secondary shadow-md">
+                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgFIUiykm0JvOqD3GSrIDIbG1UX-cwQvRlostYU9SMO5HMg6DWWer5jyN1CgOFWpF4Z_27TjzcM0BQvcz3_WKpZU69z0_18uPEl--6x59In8Ky6AXc8OzqKkWi05ddLt6CDaL2hpO9ZUuPNdqn6IFga7fqN1EU9VBbJZ_TWB8dGsFqeg8LuFEqNpUy4dEwJcoHoxe6M3ojORUi2XudQ8qi-QXO6wJ2REktNwNOHVU4F-VU11Mw0p8sxYzPd3Xb-CGRfm-vNzLAcQ_P" alt="Sophia"/>
+                </div>
+                <h3 class="font-headline-md text-lg text-primary mb-1">Sophia Chen</h3>
+                <span class="text-[10px] uppercase tracking-widest font-bold text-secondary mb-3">Adventure & Wellness Designer</span>
+                <p class="text-on-surface-variant text-sm mb-6">Specializes in curated health retreats, safari expeditions, and remote eco-lodges.</p>
+                <a href="https://wa.me/6281330012100" target="_blank" rel="noopener noreferrer" class="bg-primary text-white hover:bg-secondary px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold transition-colors duration-200">Chat with Sophia</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="mb-stack-xl reveal">
+        <div class="text-center mb-stack-lg">
+            <span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] block mb-2">Simple Process</span>
+            <h2 class="font-display-lg text-headline-md md:text-display-lg text-primary tracking-tighter">Your Journey in Four Steps</h2>
+        </div>
+        <div class="relative">
+            <!-- Connecting line for desktop -->
+            <div class="hidden md:block absolute top-1/2 left-12 right-12 h-[2px] bg-outline-variant/20 -translate-y-1/2 z-0"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter relative z-10">
+                <!-- Step 1 -->
+                <div class="bg-white/40 backdrop-blur-sm rounded-[24px] p-6 border border-white/50 text-center flex flex-col items-center hover:shadow-lg transition-shadow duration-300">
+                    <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold mb-4 shadow-md">1</div>
+                    <h3 class="font-headline-md text-lg text-primary mb-2">Explore & Inspire</h3>
+                    <p class="text-on-surface-variant text-sm">Browse our handpicked luxury destinations and find your dream escape.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-white/40 backdrop-blur-sm rounded-[24px] p-6 border border-white/50 text-center flex flex-col items-center hover:shadow-lg transition-shadow duration-300">
+                    <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold mb-4 shadow-md">2</div>
+                    <h3 class="font-headline-md text-lg text-primary mb-2">Chat with Curators</h3>
+                    <p class="text-on-surface-variant text-sm">Click our WhatsApp button to connect directly with your dedicated planner.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="bg-white/40 backdrop-blur-sm rounded-[24px] p-6 border border-white/50 text-center flex flex-col items-center hover:shadow-lg transition-shadow duration-300">
+                    <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold mb-4 shadow-md">3</div>
+                    <h3 class="font-headline-md text-lg text-primary mb-2">Refine Itinerary</h3>
+                    <p class="text-on-surface-variant text-sm">Receive, adjust, and finalize your customized day-by-day travel plan.</p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="bg-white/40 backdrop-blur-sm rounded-[24px] p-6 border border-white/50 text-center flex flex-col items-center hover:shadow-lg transition-shadow duration-300">
+                    <div class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center font-bold mb-4 shadow-md">4</div>
+                    <h3 class="font-headline-md text-lg text-primary mb-2">Depart & Indulge</h3>
+                    <p class="text-on-surface-variant text-sm">Pack your bags and travel with total peace of mind and 24/7 support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-stack-xl reveal">
+        <div class="text-center mb-stack-lg">
+            <span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] block mb-2">Common Queries</span>
+            <h2 class="font-display-lg text-headline-md md:text-display-lg text-primary tracking-tighter">Frequently Asked Questions</h2>
+        </div>
+        <div class="max-w-3xl mx-auto space-y-4">
+            <details class="group bg-surface-container-low rounded-2xl border border-outline-variant/20 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all duration-300 hover:shadow-md">
+                <summary class="flex items-center justify-between text-primary font-bold text-headline-md md:text-lg">
+                    <span>How does the bespoke travel planning process work?</span>
+                    <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-secondary">expand_more</span>
+                </summary>
+                <p class="mt-4 text-on-surface-variant font-body-md leading-relaxed">
+                    We start with an exploratory conversation on WhatsApp to understand your interests, budget, and travel dates. Then, our curators draft a bespoke itinerary. We refine it together until it matches your exact definition of a dream trip before finalizing bookings.
+                </p>
+            </details>
+            <details class="group bg-surface-container-low rounded-2xl border border-outline-variant/20 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all duration-300 hover:shadow-md">
+                <summary class="flex items-center justify-between text-primary font-bold text-headline-md md:text-lg">
+                    <span>Can you accommodate last-minute changes or emergencies?</span>
+                    <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-secondary">expand_more</span>
+                </summary>
+                <p class="mt-4 text-on-surface-variant font-body-md leading-relaxed">
+                    Absolutely. Our 24/7 dedicated concierge is always available on WhatsApp to accommodate real-time travel adjustments, handle unexpected cancellations, or arrange alternative premium transportation.
+                </p>
+            </details>
+            <details class="group bg-surface-container-low rounded-2xl border border-outline-variant/20 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all duration-300 hover:shadow-md">
+                <summary class="flex items-center justify-between text-primary font-bold text-headline-md md:text-lg">
+                    <span>What safety protocols do you maintain?</span>
+                    <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-secondary">expand_more</span>
+                </summary>
+                <p class="mt-4 text-on-surface-variant font-body-md leading-relaxed">
+                    We exclusively partner with verified luxury operators, high-end private transport systems, and reputable resort networks. We monitor global travel advice and stay connected with you via WhatsApp throughout the entire duration of your trip.
+                </p>
+            </details>
+            <details class="group bg-surface-container-low rounded-2xl border border-outline-variant/20 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition-all duration-300 hover:shadow-md">
+                <summary class="flex items-center justify-between text-primary font-bold text-headline-md md:text-lg">
+                    <span>Is travel insurance included in your curations?</span>
+                    <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-secondary">expand_more</span>
+                </summary>
+                <p class="mt-4 text-on-surface-variant font-body-md leading-relaxed">
+                    While we do not sell insurance directly, our concierge team can recommend premium global travel insurance plans and assist you in selecting the coverage that best fits your custom package.
+                </p>
+            </details>
+        </div>
+    </section>
+
     <!-- Call to Action -->
     <section class="relative rounded-[48px] overflow-hidden h-[500px] flex items-center justify-center text-center reveal">
         <img class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEGUVBPo33mwHFHdZOOosooi8FG83FdPP8fHIgBdrzCfVDDbelLOpeV89EOEWYKfYOzmfpWpFe_0B_0DMXz62UDVcpLkIrZIPtn67Nyfxp3tTPxZSJq3E5pwA7K60HOQkBl0mVPZeIjNJGmOoFMmuk7OqD9CYrQ2ngYhpvOURKViAgRBvfjVs6KO5tBfkWmAWgb1VVmlifVICpw7VTPk9oRYDcVyGv4ITVEM2eHDwk5ad-6Y1VBEiLgAG4vny0gloeE5gpEGiFUF74" alt="Mountains"/>
@@ -221,6 +494,19 @@
                 <a href="{{ route('explore') }}" class="bg-secondary text-on-secondary px-10 py-4 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:scale-110 transition-transform duration-300">Start Planning</a>
                 <a href="{{ route('explore') }}" class="text-white border border-white/40 px-10 py-4 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:bg-white hover:text-primary transition-all duration-300 backdrop-blur-md">View Brochures</a>
             </div>
+        </div>
+    </section>
+
+    <!-- Press & Partners Section -->
+    <section class="py-12 border-t border-outline-variant/10 mb-stack-xl reveal">
+        <div class="text-center mb-6">
+            <span class="text-[10px] uppercase tracking-[0.25em] font-bold text-on-surface-variant opacity-60">Featured & Partnered With</span>
+        </div>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale hover:opacity-75 transition-opacity duration-300">
+            <span class="font-display-lg text-lg md:text-2xl font-bold tracking-widest text-primary">CONDE NAST</span>
+            <span class="font-display-lg text-lg md:text-2xl font-bold tracking-widest text-primary">FORBES TRAVEL</span>
+            <span class="font-display-lg text-lg md:text-2xl font-bold tracking-widest text-primary">ROBB REPORT</span>
+            <span class="font-display-lg text-lg md:text-2xl font-bold tracking-widest text-primary">TRAVEL + LEISURE</span>
         </div>
     </section>
 </main>
